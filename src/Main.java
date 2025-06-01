@@ -54,7 +54,7 @@ public class Main {
                             String role = scanner.nextLine().toLowerCase();
 
                             if (!role.equals("employee")) {
-                                System.out.println("❌ Only employees can be registered.");
+                                System.out.println("Only employees can be registered.");
                                 break;
                             }
 
