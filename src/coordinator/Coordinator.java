@@ -154,7 +154,7 @@ public class Coordinator extends UnicastRemoteObject implements CoordinatorServi
 
         List<FileService> healthyNodes = getHealthyNodes();
         if (healthyNodes.isEmpty()) {
-            System.err.println("❌ No healthy nodes available for writing.");
+            System.err.println(" No healthy nodes available for writing.");
             return false;
         }
 

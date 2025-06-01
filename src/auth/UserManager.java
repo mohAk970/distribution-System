@@ -35,7 +35,6 @@ public class UserManager {
                     permissions = Arrays.asList(permissionsString.split(","));
                 }
 
-                // تحقق إضافي: إذا كان موظفًا، يجب أن يكون له قسم وصلاحيات
                 if (role.equals("employee")) {
                     if (department.isEmpty() || permissions.isEmpty()) {
                         System.err.println("️ Ignoring invalid employee entry (missing department or permissions): " + username);

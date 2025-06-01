@@ -22,9 +22,8 @@ public interface CoordinatorService extends Remote {
     List<FileService> getHealthyNodes() throws RemoteException;
 
 
-    void logout(String token) throws RemoteException; // ✅ جديد
+    void logout(String token) throws RemoteException;
 
-   // List<String> listUserFiles(String token) throws RemoteException;
 
 
 }

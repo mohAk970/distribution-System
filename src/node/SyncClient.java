@@ -65,7 +65,7 @@ public class SyncClient {
             System.out.println("[SyncClient] Sent: " + section + "/" + file.getName());
 
         } catch (Exception e) {
-            System.err.println("❌ Failed to send file: " + file.getName() + " - " + e.getMessage());
+            System.err.println(" Failed to send file: " + file.getName() + " - " + e.getMessage());
         }
     }
 }

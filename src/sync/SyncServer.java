@@ -1,7 +1,9 @@
 package sync;
+
 import node.SyncClient;
 import rmi.CoordinatorService;
 import rmi.FileService;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -67,14 +69,14 @@ public class SyncServer {
     }
 
     public static void distributeToNodes() throws Exception {
-        System.out.println(" [SyncServer] Starting distribution...");
+        System.out.println("🔁 [SyncServer] Starting distribution...");
 
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
         CoordinatorService coordinator = (CoordinatorService) registry.lookup("Coordinator");
 
         List<FileService> healthyNodes = coordinator.getHealthyNodes();
         if (healthyNodes.size() < 3) {
-            System.out.println(" Skipping distribution: Not all 3 nodes are healthy.");
+            System.out.println("Skipping distribution: Not all 3 nodes are healthy.");
             return;
         }
 
@@ -93,7 +95,7 @@ public class SyncServer {
                             latestFiles.put(relativePath, new FileVersion(content, lastModified));
                         }
                     } catch (IOException e) {
-                        System.err.println("⚠️ Error reading file: " + e.getMessage());
+                        System.err.println(" Error reading file: " + e.getMessage());
                     }
                 });
 
@@ -104,14 +106,14 @@ public class SyncServer {
             for (FileService node : healthyNodes) {
                 try {
                     node.writeFile(filePath, version.data);
-                    System.out.println("📤 Synced " + filePath + " to node: " + node.getNodeName());
+                    System.out.println(" Synced " + filePath + " to node: " + node.getNodeName());
                 } catch (Exception e) {
-                    System.err.println("⚠️ Failed to sync " + filePath + " to node: " + node.getNodeName());
+                    System.err.println("️ Failed to sync " + filePath + " to node: " + node.getNodeName());
                 }
             }
         }
 
-        System.out.println("✅ [SyncServer] Distribution based on latest version completed.");
+        System.out.println(" [SyncServer] Distribution based on latest version completed.");
     }
 
     public static void deleteSyncStorage() throws IOException {
@@ -149,10 +151,10 @@ public class SyncServer {
                     distributeToNodes();
                     deleteSyncStorage();
 
-                    System.out.println(" [Auto-Sync] Completed and cleaned.");
+                    System.out.println("[Auto-Sync] Completed and cleaned.");
 
                 } catch (Exception e) {
-                    System.err.println(" [Auto-Sync] Error: " + e.getMessage());
+                    System.err.println("[Auto-Sync] Error: " + e.getMessage());
                 }
             }
         }).start();
