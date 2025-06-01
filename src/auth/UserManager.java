@@ -75,7 +75,7 @@ public class UserManager {
                 }
             }
         } catch (IOException e) {
-            System.err.println("❌ Error saving users: " + e.getMessage());
+            System.err.println(" Error saving users: " + e.getMessage());
             e.printStackTrace();
         }
     }
