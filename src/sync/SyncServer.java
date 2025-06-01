@@ -69,7 +69,7 @@ public class SyncServer {
     }
 
     public static void distributeToNodes() throws Exception {
-        System.out.println("🔁 [SyncServer] Starting distribution...");
+        System.out.println("[SyncServer] Starting distribution...");
 
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
         CoordinatorService coordinator = (CoordinatorService) registry.lookup("Coordinator");
