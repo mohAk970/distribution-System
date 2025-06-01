@@ -5,5 +5,7 @@ tt;tt;employee;qa;63ff3e62-4ea6-488a-8849-804006de2d3a;delete,edit
 qq;qq;employee;qa;;read,write,delete
 uu;uu;employee;design;;delete,edit
 hh;hh;employee;qa;f014318d-5500-47ce-a7be-c807dd229f0d;delete,edit
+ii;ii;employee;dev;0fa234fe-38a2-4437-8c70-6005d04dfb99;read,write,delete,edit
+oo;oo;employee;design;;read,write,delete,edit
 admin;admin123;manager;;;
 hhh;hhh;employee;qa;;read,write,delete
